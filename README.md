@@ -2,7 +2,6 @@
 A LM-Studio addon for HomeAssistant - A Visual intelligence for your home.
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
-[![Validate](https://github.com/savergiggio/LM-STUDIO-VISION-HOMEASSISTANT/actions/workflows/validate.yml/badge.svg)](https://github.com/savergiggio/LM-STUDIO-VISION-HOMEASSISTANT/actions/workflows/validate.yml)
 
 A custom **integration** that brings *LLM Vision*–style image analysis to Home
 Assistant, powered entirely by a **local [LM Studio](https://lmstudio.ai)
