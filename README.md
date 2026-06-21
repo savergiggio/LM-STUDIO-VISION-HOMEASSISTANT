@@ -2,7 +2,7 @@
 A LM-Studio addon for HomeAssistant - A Visual intelligence for your home.
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
-[![Validate](https://github.com/YOUR_GITHUB_USERNAME/lmstudio-vision-ha/actions/workflows/validate.yml/badge.svg)](https://github.com/YOUR_GITHUB_USERNAME/lmstudio-vision-ha/actions/workflows/validate.yml)
+[![Validate](https://github.com/savergiggio/LM-STUDIO-VISION-HOMEASSISTANT/actions/workflows/validate.yml/badge.svg)](https://github.com/savergiggio/LM-STUDIO-VISION-HOMEASSISTANT/actions/workflows/validate.yml)
 
 A custom **integration** that brings *LLM Vision*–style image analysis to Home
 Assistant, powered entirely by a **local [LM Studio](https://lmstudio.ai)
@@ -59,7 +59,7 @@ Everything runs on your LAN. No cloud, no subscription, no API key required.
 1. Make sure [HACS](https://hacs.xyz) is installed.
 2. In Home Assistant go to **HACS → ⋮ (top-right) → Custom repositories**.
 3. Add the repository URL
-   `https://github.com/savergiggio/lmstudio-vision-ha`
+   `https://github.com/savergiggio/LM-STUDIO-VISION-HOMEASSISTANT`
    and choose category **Integration**, then **Add**.
 4. Open the new *LM Studio Vision* card, click **Download**, and **restart Home
    Assistant**.
