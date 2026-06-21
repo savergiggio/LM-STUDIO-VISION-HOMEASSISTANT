@@ -1,0 +1,227 @@
+analyze:
+  name: Analyze image
+  description: >-
+    Send one or more images plus a prompt to a vision model in LM Studio and
+    return the model's text. Can auto-load the model and remember the result
+    on the timeline.
+  fields:
+    prompt:
+      name: Prompt
+      description: The question or instruction for the vision model.
+      required: true
+      example: "Is there a person or a package at the door?"
+      selector:
+        text:
+          multiline: true
+    system_prompt:
+      name: System prompt
+      description: Optional system message to steer tone/format.
+      required: false
+      selector:
+        text:
+          multiline: true
+    image_entity:
+      name: Camera entities
+      description: One or more camera entities to snapshot.
+      required: false
+      selector:
+        entity:
+          domain: camera
+          multiple: true
+    image_file:
+      name: Image file paths
+      description: Absolute paths (folder must be in allowlist_external_dirs).
+      required: false
+      selector:
+        object:
+    image_url:
+      name: Image URLs
+      description: Image URLs to fetch and analyze.
+      required: false
+      selector:
+        object:
+    model:
+      name: Model
+      description: Model identifier. Empty = currently loaded model.
+      required: false
+      example: "qwen2-vl-7b-instruct"
+      selector:
+        text:
+    auto_load:
+      name: Auto-load model
+      description: >-
+        Load the target model in LM Studio first if it isn't loaded. Falls back
+        to just-in-time loading on older builds. Defaults to the integration
+        option.
+      required: false
+      selector:
+        boolean:
+    context_length:
+      name: Context length
+      description: Context length to request when loading the model.
+      required: false
+      selector:
+        number:
+          min: 256
+          max: 131072
+          mode: box
+    max_tokens:
+      name: Max tokens
+      required: false
+      default: 512
+      selector:
+        number:
+          min: 16
+          max: 4096
+          mode: box
+    temperature:
+      name: Temperature
+      required: false
+      default: 0.2
+      selector:
+        number:
+          min: 0
+          max: 2
+          step: 0.1
+          mode: slider
+    target_width:
+      name: Target width
+      description: Images wider than this are downscaled before sending (px).
+      required: false
+      default: 1280
+      selector:
+        number:
+          min: 64
+          max: 4096
+          mode: box
+    detail:
+      name: Detail
+      required: false
+      default: auto
+      selector:
+        select:
+          options: [auto, low, high]
+    use_memory:
+      name: Use event memory
+      description: Inject recent remembered events as context for continuity.
+      required: false
+      selector:
+        boolean:
+    memory_count:
+      name: Memory count
+      description: How many recent events to inject when use_memory is on.
+      required: false
+      default: 5
+      selector:
+        number:
+          min: 1
+          max: 50
+          mode: box
+    remember:
+      name: Remember result
+      description: Store the analysis on the timeline (with a keyframe).
+      required: false
+      selector:
+        boolean:
+    title:
+      name: Event title
+      description: Title for the remembered event (default = start of the answer).
+      required: false
+      selector:
+        text:
+    labels:
+      name: Labels
+      description: Optional tags for the remembered event.
+      required: false
+      selector:
+        object:
+
+list_models:
+  name: List models
+  description: Return known models and which ones are currently loaded.
+
+remember:
+  name: Remember event
+  description: Manually add an event to the timeline / event memory.
+  fields:
+    title:
+      name: Title
+      required: true
+      selector:
+        text:
+    summary:
+      name: Summary
+      required: true
+      selector:
+        text:
+          multiline: true
+    camera:
+      name: Camera / source
+      required: false
+      selector:
+        text:
+    image_entity:
+      name: Camera for keyframe
+      description: Optional camera to snapshot and attach as the thumbnail.
+      required: false
+      selector:
+        entity:
+          domain: camera
+    labels:
+      name: Labels
+      required: false
+      selector:
+        object:
+
+recall:
+  name: Recall events
+  description: >-
+    Return remembered events (newest first) plus a compact log string handy for
+    notifications or feeding back into a prompt.
+  fields:
+    count:
+      name: Count
+      required: false
+      default: 10
+      selector:
+        number:
+          min: 1
+          max: 100
+          mode: box
+    camera:
+      name: Camera filter
+      required: false
+      selector:
+        text:
+    after:
+      name: After
+      required: false
+      selector:
+        datetime:
+    before:
+      name: Before
+      required: false
+      selector:
+        datetime:
+    query:
+      name: Text query
+      description: Substring to match in title/summary.
+      required: false
+      selector:
+        text:
+
+forget:
+  name: Forget event(s)
+  description: Remove a single event by id, or clear the whole timeline.
+  fields:
+    event_id:
+      name: Event ID
+      required: false
+      selector:
+        text:
+    all:
+      name: Clear all
+      required: false
+      default: false
+      selector:
+        boolean:

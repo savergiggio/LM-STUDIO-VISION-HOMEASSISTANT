@@ -1,0 +1,41 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "LM Studio Vision",
+        "description": "Collega il tuo server LM Studio locale (scheda Developer \u2192 Start Server).",
+        "data": {
+          "host": "Host",
+          "port": "Porta",
+          "https": "Usa HTTPS",
+          "api_key": "API key (opzionale)",
+          "model": "Modello predefinito (opzionale)",
+          "auto_load": "Carica automaticamente il modello prima dell'analisi",
+          "context_length": "Lunghezza contesto al caricamento (0 = predefinita)",
+          "timeout": "Timeout richiesta (secondi)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Impossibile raggiungere il server LM Studio. Verifica che il server sia avviato e che host/porta siano corretti.",
+      "unknown": "Errore inatteso. Controlla i log di Home Assistant."
+    },
+    "abort": {
+      "already_configured": "Questo server LM Studio \u00e8 gi\u00e0 configurato."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opzioni LM Studio Vision",
+        "data": {
+          "model": "Modello predefinito",
+          "auto_load": "Carica automaticamente il modello prima dell'analisi",
+          "context_length": "Lunghezza contesto al caricamento (0 = predefinita)",
+          "timeout": "Timeout richiesta (secondi)",
+          "api_key": "API key"
+        }
+      }
+    }
+  }
+}
