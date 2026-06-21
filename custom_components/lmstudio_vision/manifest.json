@@ -1,13 +1,13 @@
 {
   "domain": "lmstudio_vision",
   "name": "LM Studio Vision",
-  "codeowners": ["@YOUR_GITHUB_USERNAME"],
+  "codeowners": ["@savergiggio"],
   "config_flow": true,
   "dependencies": ["camera"],
-  "documentation": "https://github.com/YOUR_GITHUB_USERNAME/lmstudio-vision-ha",
+  "documentation": "https://github.com/savergiggio/LM-STUDIO-VISION-HOMEASSISTANT",
   "integration_type": "hub",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/YOUR_GITHUB_USERNAME/lmstudio-vision-ha/issues",
+  "issue_tracker": "https://github.com/savergiggio/LM-STUDIO-VISION-HOMEASSISTANT/issues",
   "requirements": [],
   "version": "1.1.0"
 }
